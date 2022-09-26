@@ -1,0 +1,9 @@
+version: '3.4'
+
+services:
+  quantifeed.excercise.web.host:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "8000:80"
+      - "4430:443"

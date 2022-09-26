@@ -1,0 +1,22 @@
+version: '3.4'
+
+services:
+  quantifeed.excercise.web.host:
+    image: ${DOCKER_REGISTRY-}quantifeedexcercisewebhost
+    build:
+      context: .
+      dockerfile: src/Quantifeed.Excercise.Web.Host/Dockerfile
+    depends_on:
+      - db
+    restart: on-failure
+      
+  db:
+    image: "mcr.microsoft.com/mssql/server"
+    container_name: db
+    ports:
+      - "14330:1433"
+    restart: always
+    environment:
+      MSSQL_SA_PASSWORD: "P@ssw0rd"
+      SA_PASSWORD: "P@ssw0rd"
+      ACCEPT_EULA: "Y"
