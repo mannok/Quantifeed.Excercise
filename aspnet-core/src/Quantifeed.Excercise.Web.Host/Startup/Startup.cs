@@ -85,7 +85,8 @@ namespace Quantifeed.Excercise.Web.Host.Startup
                         ? "log4net.config"
                         : "log4net.Production.config"
                     )
-                )
+                ),
+                false
             );
         }
 
@@ -124,7 +125,7 @@ namespace Quantifeed.Excercise.Web.Host.Startup
                 options.DisplayRequestDuration(); // Controls the display of the request duration (in milliseconds) for "Try it out" requests.  
             }); // URL: /swagger
         }
-        
+
         private void ConfigureSwagger(IServiceCollection services)
         {
             services.AddSwaggerGen(options =>
