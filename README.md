@@ -1,37 +1,27 @@
-# Important
-
-Issues of this repository are tracked on https://github.com/aspnetboilerplate/aspnetboilerplate. Please create your issues on https://github.com/aspnetboilerplate/aspnetboilerplate/issues.
-
 # Introduction
 
-This is a template to create **ASP.NET Core MVC / Angular** based startup projects for [ASP.NET Boilerplate](https://aspnetboilerplate.com/Pages/Documents). It has 2 different versions:
+this is the exercise done by Xanthus Wong for Quanifeed post application.
 
-1. [ASP.NET Core MVC & jQuery](https://aspnetboilerplate.com/Pages/Documents/Zero/Startup-Template-Core) (server rendered multi-page application).
-2. [ASP.NET Core & Angular](https://aspnetboilerplate.com/Pages/Documents/Zero/Startup-Template-Angular) (single page application).
- 
-User Interface is based on [AdminLTE theme](https://github.com/ColorlibHQ/AdminLTE).
- 
-# Download
+# Prerequisite
 
-Create & download your project from https://aspnetboilerplate.com/Templates
+- docker installed
+- vs2022 installed
+- .NET6 SDK intalled
 
-# Screenshots
+# Test Procedure
 
-#### Sample Dashboard Page
-![](_screenshots/module-zero-core-template-ui-home.png)
+1. open Quantifeed.Excercise with vs2022
+2. set configuration to "Release"
+3. set docker-compose as startup project
+4. start docker-compose with "Start Without Debugging (ctrl + F5)"
+5. once docker-compose is started up, switch startup project to Quantifeed.Excercise.Migrator
+6. start Quantifeed.Excercise.Migrator with "Start Without Debugging (ctrl + F5)"
+7. enter "Y" when asked to migrate
+8. (repeat step 3)
+9. (repeat step 4)
+10. open "Test Explorer" window in vs2022
+11. navigate to "OrderAppService_Test" -> right click -> Run
 
-#### User Creation Modal
-![](_screenshots/module-zero-core-template-ui-user-create-modal.png)
+# Hints
 
-#### Login Page
-
-![](_screenshots/module-zero-core-template-ui-login.png)
-
-# Documentation
-
-* [ASP.NET Core MVC & jQuery version.](https://aspnetboilerplate.com/Pages/Documents/Zero/Startup-Template-Core)
-* [ASP.NET Core & Angular  version.](https://aspnetboilerplate.com/Pages/Documents/Zero/Startup-Template-Angular)
-
-# License
-
-[MIT](LICENSE).
+you may Open SSMS and connect to 127.0.0.1,14330 with "sa" and "P@ssw0rd" to see data stored in db

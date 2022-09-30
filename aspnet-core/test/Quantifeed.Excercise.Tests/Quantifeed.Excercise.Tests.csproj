@@ -15,8 +15,11 @@
     <ProjectReference Include="..\..\src\Quantifeed.Excercise.EntityFrameworkCore\Quantifeed.Excercise.EntityFrameworkCore.csproj" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Abp.Web.Common" Version="7.3.0" />
+    <PackageReference Include="Dangl.Xunit.Extensions.Ordering" Version="2.1.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.1.0" />
     <PackageReference Include="NSubstitute" Version="4.3.0" />
+    <PackageReference Include="RestSharp" Version="108.0.2" />
     <PackageReference Include="Shouldly" Version="4.0.3" />
     <PackageReference Include="xunit" Version="2.4.1" />
     <PackageReference Include="xunit.extensibility.execution" Version="2.4.1" />
