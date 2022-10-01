@@ -12,11 +12,6 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Remove="Business\Client\**" />
-    <EmbeddedResource Remove="Business\Client\**" />
-    <None Remove="Business\Client\**" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Quantifeed.Excercise.Core\Quantifeed.Excercise.Core.csproj" />
   </ItemGroup>
 </Project>

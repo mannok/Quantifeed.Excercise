@@ -13,6 +13,13 @@ using System.Threading.Tasks;
 
 namespace Quantifeed.Excercise.Business.Orders
 {
+    [Index(nameof(Type))]
+    [Index(nameof(Currency))]
+    [Index(nameof(Symbol))]
+    [Index(nameof(NotionalAmount))]
+    [Index(nameof(Destination))]
+    [Index(nameof(BasketId))]
+    [Index(nameof(Weight))]
     public class Order : FullAuditedEntity<Guid>
     {
         public Order()

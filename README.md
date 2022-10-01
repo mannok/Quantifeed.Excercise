@@ -24,4 +24,18 @@ this is the exercise done by Xanthus Wong for Quanifeed post application.
 
 # Hints
 
-you may Open SSMS and connect to 127.0.0.1,14330 with "sa" and "P@ssw0rd" to see data stored in db
+you may open SSMS and connect to 127.0.0.1,14330 with "sa" and "P@ssw0rd" to see data stored in db
+
+# Performance Care Efforts
+
+- dockerized system. If user/request volumn grow later, it could be integrated with K8s/docker-swarm to ensure unlimited system/performance scalability [db will still be a bottleneck. Ultimately, we could break down whole system with db by service domain, a.k.a. microservices]
+- table field indexing. Ensure records are well indexed for further query requests
+- entity related entity lazy loading. Currently, related(foriegn) entity is marked "virtual". which means the related entities' properties will be query just in time when being accessed
+- try to keep DI component as singleton if possible. To keep high performance, I marked "IBasketAppService" as singleton so that it will not be instantiated every time when user request. This same approach will be taken for any further registration to DI
+- try to use async/await method if possible. I try to use and make function with async/await pattern if possible. async/await can avoid thread blocking and wasting computing resource
+
+# Possible Performance Solutions
+
+- break system and db down by service domain in order to achieve microservices
+- use redis to store and take ongoing system caches
+- reindex db regularly

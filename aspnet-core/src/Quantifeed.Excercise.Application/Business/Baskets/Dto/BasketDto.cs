@@ -17,6 +17,6 @@ namespace Quantifeed.Excercise.Business.Orders.Dto
     {
         public string ClientId { get; set; }
 
-        public IList<OrderDto> ChildOrders { get; set; }
+        public virtual IList<OrderDto> ChildOrders { get; set; }
     }
 }

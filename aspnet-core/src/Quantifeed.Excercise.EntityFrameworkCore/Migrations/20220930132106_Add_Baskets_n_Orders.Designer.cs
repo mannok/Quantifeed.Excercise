@@ -12,7 +12,7 @@ using Quantifeed.Excercise.EntityFrameworkCore;
 namespace Quantifeed.Excercise.Migrations
 {
     [DbContext(typeof(ExcerciseDbContext))]
-    [Migration("20220930034959_Add_Baskets_n_Orders")]
+    [Migration("20220930132106_Add_Baskets_n_Orders")]
     partial class Add_Baskets_n_Orders
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -1577,7 +1577,7 @@ namespace Quantifeed.Excercise.Migrations
                         .HasColumnName("BasketId");
 
                     b.Property<string>("ClientId")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("CreationTime")
                         .HasColumnType("datetime2");
@@ -1601,6 +1601,8 @@ namespace Quantifeed.Excercise.Migrations
                         .HasColumnType("bigint");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ClientId");
 
                     b.ToTable("Baskets");
                 });
@@ -1622,7 +1624,7 @@ namespace Quantifeed.Excercise.Migrations
                         .HasColumnType("bigint");
 
                     b.Property<string>("Currency")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<long?>("DeleterUserId")
                         .HasColumnType("bigint");
@@ -1631,7 +1633,7 @@ namespace Quantifeed.Excercise.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Destination")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
@@ -1646,7 +1648,7 @@ namespace Quantifeed.Excercise.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("Symbol")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("Type")
                         .HasColumnType("int");
@@ -1657,6 +1659,18 @@ namespace Quantifeed.Excercise.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("BasketId");
+
+                    b.HasIndex("Currency");
+
+                    b.HasIndex("Destination");
+
+                    b.HasIndex("NotionalAmount");
+
+                    b.HasIndex("Symbol");
+
+                    b.HasIndex("Type");
+
+                    b.HasIndex("Weight");
 
                     b.ToTable("Orders");
                 });

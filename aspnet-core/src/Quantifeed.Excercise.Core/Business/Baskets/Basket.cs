@@ -1,4 +1,5 @@
 ﻿using Abp.Domain.Entities.Auditing;
+using Microsoft.EntityFrameworkCore;
 using Quantifeed.Excercise.Business.Orders;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace Quantifeed.Excercise.Business.Baskets
 {
+    [Index(nameof(ClientId))]
     public class Basket : FullAuditedAggregateRoot<Guid>
     {
         public Basket()

@@ -14,7 +14,7 @@ namespace Quantifeed.Excercise.Migrations
                 columns: table => new
                 {
                     BasketId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ClientId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ClientId = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     CreationTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CreatorUserId = table.Column<long>(type: "bigint", nullable: true),
                     LastModificationTime = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -34,10 +34,10 @@ namespace Quantifeed.Excercise.Migrations
                 {
                     OrderId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Type = table.Column<int>(type: "int", nullable: false),
-                    Currency = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Symbol = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Currency = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    Symbol = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     NotionalAmount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    Destination = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Destination = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     BasketId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Weight = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     CreationTime = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -60,9 +60,44 @@ namespace Quantifeed.Excercise.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_Baskets_ClientId",
+                table: "Baskets",
+                column: "ClientId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Orders_BasketId",
                 table: "Orders",
                 column: "BasketId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Orders_Currency",
+                table: "Orders",
+                column: "Currency");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Orders_Destination",
+                table: "Orders",
+                column: "Destination");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Orders_NotionalAmount",
+                table: "Orders",
+                column: "NotionalAmount");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Orders_Symbol",
+                table: "Orders",
+                column: "Symbol");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Orders_Type",
+                table: "Orders",
+                column: "Type");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Orders_Weight",
+                table: "Orders",
+                column: "Weight");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
