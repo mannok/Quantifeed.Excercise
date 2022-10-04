@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace Quantifeed.Excercise.Business.Baskets.Dto
 {
-    [AutoMapTo(typeof(Basket))]
+    [AutoMap(typeof(Basket))]
     public class CreateBasketDto : CreationAuditedEntityDto<Guid>, ICustomValidate
     {
         [Required]

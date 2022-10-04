@@ -17,7 +17,7 @@ using System.Threading.Tasks;
 
 namespace Quantifeed.Excercise.Business.Orders.Dto
 {
-    [AutoMapTo(typeof(Order))]
+    [AutoMap(typeof(Order))]
     public class CreateOrderDto : CreationAuditedEntityDto<Guid>
     {
         [Required]

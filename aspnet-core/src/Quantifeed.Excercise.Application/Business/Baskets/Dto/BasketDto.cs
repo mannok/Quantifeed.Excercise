@@ -12,11 +12,11 @@ using System.Threading.Tasks;
 
 namespace Quantifeed.Excercise.Business.Orders.Dto
 {
-    [AutoMapFrom(typeof(Basket))]
+    [AutoMap(typeof(Basket))]
     public class BasketDto : EntityDto<Guid>
     {
         public string ClientId { get; set; }
 
-        public virtual IList<OrderDto> ChildOrders { get; set; }
+        public IList<OrderDto> ChildOrders { get; set; }
     }
 }
